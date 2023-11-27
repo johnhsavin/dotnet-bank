@@ -7,8 +7,18 @@ int age = 50;
 string name = "John";
 // Console.WriteLine($"your name is {name} and you're {age} years old" ); // special string like template literal
 
-BankAccount newAccount = new BankAccount();    // class + variable name = create new version of bank account
+try {
 
-newAccount.Balance = 100.99;
+SavingsAccount newAccount = new SavingsAccount("Bobby", 100.99);    // class + variable name = create new version of bank account
 
-Console.WriteLine($"Your balance is {newAccount.Balance}");
+// newAccount.Balance = 100.99;
+// newAccount.Balance =newAccount.Balance + 100;
+
+newAccount.Deposit(50.00);
+
+newAccount.Withdraw(40.00);
+
+Console.WriteLine($"Your balance is {newAccount.getBalance()}");
+} catch (Exception err) {
+  Console.WriteLine($" you got an error {err.Message}");
+}
